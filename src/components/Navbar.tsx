@@ -9,6 +9,7 @@ interface NavbarProps {
 const navLinks = [
   { label: 'Home', id: 'home' },
   { label: 'Properties', id: 'properties' },
+  { label: 'Land Banking', id: 'land-banking' },
   { label: 'About', id: 'about' },
   { label: 'Services', id: 'services' },
   { label: 'Testimonials', id: 'testimonials' },

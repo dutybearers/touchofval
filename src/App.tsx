@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import PropertyListings from '@/components/PropertyListings';
 import PropertyDetailModal from '@/components/PropertyDetailModal';
 import About from '@/components/About';
+import LandBanking from '@/components/LandBanking';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
@@ -139,6 +140,7 @@ function App() {
         onClearFilters={handleClearFilters}
       />
 
+      <LandBanking />
       <About />
       <Services />
       <Testimonials testimonials={testimonials} loading={testimonialsLoading} />
