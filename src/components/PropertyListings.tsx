@@ -20,7 +20,7 @@ export default function PropertyListings({
   onClearFilters,
 }: PropertyListingsProps) {
   return (
-    <section id="properties" className="scroll-mt-20 bg-gray-50 py-20">
+    <section id="properties" className="scroll-mt-20 bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-tov-500">
@@ -51,17 +51,17 @@ export default function PropertyListings({
         )}
 
         {loading ? (
-          <div className="mt-16 flex flex-col items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4">
             <Loader2 className="h-10 w-10 animate-spin text-tov-500" />
             <p className="text-gray-500">Loading properties...</p>
           </div>
         ) : error ? (
-          <div className="mt-16 flex flex-col items-center justify-center gap-3 rounded-2xl bg-red-50 p-8 text-center">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-2xl bg-red-50 p-8 text-center">
             <SearchX className="h-10 w-10 text-red-400" />
             <p className="text-red-700">{error}</p>
           </div>
         ) : properties.length === 0 ? (
-          <div className="mt-16 flex flex-col items-center justify-center gap-3 rounded-2xl bg-white p-12 text-center shadow-sm">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-2xl bg-white p-12 text-center shadow-sm">
             <Home className="h-12 w-12 text-gray-300" />
             <p className="text-lg font-medium text-gray-700">
               No properties match your search
@@ -79,7 +79,7 @@ export default function PropertyListings({
             )}
           </div>
         ) : (
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {properties.map((property) => (
               <PropertyCard
                 key={property.id}

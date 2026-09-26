@@ -43,20 +43,20 @@ export default function PropertyCard({ property, onClick }: PropertyCardProps) {
         </div>
       </div>
 
-      <div className="p-5">
+      <div className="p-4">
         <h3 className="font-serif text-lg font-bold text-gray-900 transition-colors group-hover:text-tov-600">
           {property.title}
         </h3>
-        <p className="mt-1 flex items-center gap-1.5 text-sm text-gray-500">
-          <MapPin className="h-4 w-4 text-tov-400" />
+        <p className="mt-1 flex items-center gap-1.5 text-xs text-gray-500">
+          <MapPin className="h-3.5 w-3.5 text-tov-400" />
           {property.location}, {property.city}
         </p>
 
-        <div className="mt-3 whitespace-pre-line text-sm leading-relaxed text-gray-600 line-clamp-4">
-          {property.description}
+        <div className="mt-3 whitespace-pre-line text-sm leading-snug text-gray-600 line-clamp-5">
+          {property.description.replace(/\n\s*\n/g, '\n').trim()}
         </div>
 
-        <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-4">
+        <div className="mt-3 flex items-center justify-between border-t border-gray-100 pt-3">
           <div className="flex items-center gap-4 text-sm text-gray-600">
             {property.bedrooms > 0 && (
               <span className="flex items-center gap-1">
