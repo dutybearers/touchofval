@@ -64,27 +64,27 @@ export default function Contact({ prefillProperty, onPrefillConsumed }: ContactP
 
   const contactInfo = [
     {
-      icon: Phone,
-      label: 'Phone',
-      value: '+234 800 000 0000',
-      href: 'tel:+2348000000000',
+      icon: MapPin,
+      label: 'Office',
+      value: 'Plot 1637 Adetokunbo Ademola Street, 7th Floor, Ibukun House, Victoria Island, Lagos',
+      href: null,
     },
     {
       icon: Mail,
       label: 'Email',
-      value: 'info@touchofvalentinehomes.com',
-      href: 'mailto:info@touchofvalentinehomes.com',
+      value: 'Admin@touchofvalentinehomes.com',
+      href: 'mailto:Admin@touchofvalentinehomes.com',
     },
     {
-      icon: MapPin,
-      label: 'Office',
-      value: 'Lekki Phase 1, Lagos, Nigeria',
-      href: null,
+      icon: Phone,
+      label: 'Phone',
+      value: '+234 706 869 9134',
+      href: 'tel:+2347068699134',
     },
     {
       icon: Clock,
       label: 'Hours',
-      value: 'Mon - Sat: 8:00 AM - 6:00 PM',
+      value: 'Mon - Fri: 8:00 AM - 5:00 PM',
       href: null,
     },
   ];

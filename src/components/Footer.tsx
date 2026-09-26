@@ -79,24 +79,24 @@ export default function Footer({ onNavigate }: FooterProps) {
             <ul className="mt-4 space-y-3">
               <li className="flex items-start gap-3 text-sm text-white/60">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-                Lekki Phase 1, Lagos, Nigeria
+                Plot 1637 Adetokunbo Ademola Street, 7th Floor, Ibukun House, Victoria Island, Lagos
               </li>
               <li className="flex items-center gap-3 text-sm text-white/60">
                 <Phone className="h-4 w-4 shrink-0 text-gold-400" />
                 <a
-                  href="tel:+2348000000000"
+                  href="tel:+2347068699134"
                   className="transition-colors hover:text-gold-400"
                 >
-                  +234 800 000 0000
+                  +234 706 869 9134
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/60">
                 <Mail className="h-4 w-4 shrink-0 text-gold-400" />
                 <a
-                  href="mailto:info@touchofvalentinehomes.com"
+                  href="mailto:Admin@touchofvalentinehomes.com"
                   className="transition-colors hover:text-gold-400"
                 >
-                  info@touchofvalentinehomes.com
+                  Admin@touchofvalentinehomes.com
                 </a>
               </li>
             </ul>

@@ -57,7 +57,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
             </button>
           ))}
           <a
-            href="tel:+2348000000000"
+            href="tel:+2347068699134"
             className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-all ${
               scrolled
                 ? 'bg-tov-600 text-white hover:bg-tov-700'
@@ -91,7 +91,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
               </button>
             ))}
             <a
-              href="tel:+2348000000000"
+              href="tel:+2347068699134"
               className="mt-2 flex items-center gap-2 rounded-lg bg-tov-600 px-4 py-3 text-sm font-semibold text-white"
             >
               <Phone className="h-4 w-4" />
