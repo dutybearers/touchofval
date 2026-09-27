@@ -20,18 +20,17 @@ export default function PropertyListings({
   onClearFilters,
 }: PropertyListingsProps) {
   return (
-    <section id="properties" className="scroll-mt-20 bg-gray-50 py-12">
+    <section id="properties" className="scroll-mt-20 bg-gray-50 py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-tov-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-tov-500">
             Our Listings
           </p>
-          <h2 className="mt-2 font-serif text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h2 className="mt-1.5 font-serif text-2xl font-bold text-gray-900 sm:text-3xl">
             Available Properties
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-            Browse our curated collection of premium homes, villas, and
-            apartments — each selected for quality, location, and value.
+          <p className="mx-auto mt-2 max-w-xl text-sm text-gray-500">
+            Browse our curated collection of premium land and properties — each selected for quality, location, and value.
           </p>
         </div>
 
@@ -51,19 +50,19 @@ export default function PropertyListings({
         )}
 
         {loading ? (
-          <div className="mt-8 flex flex-col items-center justify-center gap-4">
-            <Loader2 className="h-10 w-10 animate-spin text-tov-500" />
-            <p className="text-gray-500">Loading properties...</p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3">
+            <Loader2 className="h-8 w-8 animate-spin text-tov-500" />
+            <p className="text-sm text-gray-500">Loading properties...</p>
           </div>
         ) : error ? (
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-2xl bg-red-50 p-8 text-center">
-            <SearchX className="h-10 w-10 text-red-400" />
-            <p className="text-red-700">{error}</p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 rounded-xl bg-red-50 p-6 text-center">
+            <SearchX className="h-8 w-8 text-red-400" />
+            <p className="text-sm text-red-700">{error}</p>
           </div>
         ) : properties.length === 0 ? (
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-2xl bg-white p-12 text-center shadow-sm">
-            <Home className="h-12 w-12 text-gray-300" />
-            <p className="text-lg font-medium text-gray-700">
+          <div className="mt-6 flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-8 text-center shadow-sm">
+            <Home className="h-10 w-10 text-gray-300" />
+            <p className="text-base font-medium text-gray-700">
               No properties match your search
             </p>
             <p className="text-sm text-gray-500">
@@ -79,7 +78,7 @@ export default function PropertyListings({
             )}
           </div>
         ) : (
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {properties.map((property) => (
               <PropertyCard
                 key={property.id}
