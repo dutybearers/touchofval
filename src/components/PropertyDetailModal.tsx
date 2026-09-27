@@ -8,26 +8,6 @@ import {
 } from 'lucide-react';
 import type { Property } from '@/types';
 
-function parseDescription(desc: string): { label: string; value: string }[] {
-  const lines = desc.replace(/\n\s*\n/g, '\n').trim().split('\n');
-  const fields: { label: string; value: string }[] = [];
-  let lastLabel = '';
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (!trimmed) continue;
-    const match = trimmed.match(/^([A-Za-z]+):\s*(.*)$/);
-    if (match) {
-      lastLabel = match[1];
-      fields.push({ label: match[1], value: match[2] });
-    } else if (lastLabel && fields.length > 0) {
-      fields[fields.length - 1].value += ' ' + trimmed;
-    } else {
-      fields.push({ label: '', value: trimmed });
-    }
-  }
-  return fields;
-}
-
 interface PropertyDetailModalProps {
   property: Property | null;
   onClose: () => void;
@@ -124,15 +104,8 @@ export default function PropertyDetailModal({
             <h3 className="font-serif text-lg font-bold text-gray-900">
               Property Details
             </h3>
-            <div className="mt-2 space-y-2 rounded-xl bg-gray-50 p-4">
-              {parseDescription(property.description).map((field, i) => (
-                <div key={i} className="flex gap-2 text-sm">
-                  {field.label && (
-                    <span className="w-20 shrink-0 font-semibold text-gray-900">{field.label}:</span>
-                  )}
-                  <span className="leading-relaxed text-gray-700">{field.value}</span>
-                </div>
-              ))}
+            <div className="mt-2 whitespace-pre-line rounded-xl bg-gray-50 p-4 text-sm leading-relaxed text-gray-700">
+              {property.description}
             </div>
           </div>
 
