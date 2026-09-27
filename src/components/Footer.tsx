@@ -8,9 +8,9 @@ interface FooterProps {
 export default function Footer({ onNavigate }: FooterProps) {
   const quickLinks = [
     { label: 'Home', id: 'home' },
+    { label: 'About Us', id: 'about' },
     { label: 'Properties', id: 'properties' },
     { label: 'Land Banking', id: 'land-banking' },
-    { label: 'About Us', id: 'about' },
     { label: 'Services', id: 'services' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Contact', id: 'contact' },
