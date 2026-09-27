@@ -14,7 +14,7 @@ import Footer from '@/components/Footer';
 
 function App() {
   const [properties, setProperties] = useState<Property[]>([]);
-  const [allProperties, setAllProperties] = useState<Property[]>([]);
+  const [allProperties, setAllProperties] = useState<string[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
   const [testimonialsLoading, setTestimonialsLoading] = useState(true);
