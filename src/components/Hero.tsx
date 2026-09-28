@@ -47,7 +47,7 @@ export default function Hero({
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="animate-fade-in mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
-            Touch of Valentine Homes &amp; Interiors
+            Touch of Valentine Homes &amp; Interiors Ltd
           </p>
           <h1 className="animate-fade-in-up font-serif text-4xl font-bold leading-tight text-white text-shadow-lg sm:text-5xl lg:text-6xl">
             Find Your Dream Home
