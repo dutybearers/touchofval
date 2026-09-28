@@ -129,14 +129,14 @@ export default function LandBanking() {
         <div className="mt-4 flex flex-col items-start justify-between gap-3 rounded-lg bg-gold-400 p-4 text-gray-950 shadow sm:flex-row sm:items-center">
           <div>
             <p className="text-sm font-semibold">
-              For enquiries &amp; subscription: 08065923195 | 09045141576
+              For enquiries &amp; subscription: +234 706 869 9134
             </p>
             <p className="mt-0.5 text-xs font-bold uppercase tracking-wide">
               Limited plots available. Invest now and position yourself ahead.
             </p>
           </div>
           <a
-            href="tel:+2348065923195"
+            href="tel:+2347068699134"
             className="inline-flex shrink-0 items-center gap-2 rounded-full bg-tov-950 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
           >
             <Phone className="h-4 w-4" />
