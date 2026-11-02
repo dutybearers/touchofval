@@ -17,9 +17,9 @@ export default function About() {
           <div className="relative">
             <div className="overflow-hidden rounded-2xl shadow-xl">
               <img
-                src="https://images.pexels.com/photos/38513265/pexels-photo-38513265.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                alt="Lagos skyline development"
-                className="h-full w-full object-cover"
+                src="/images/WhatsApp_Image_2026-10-30_at_2.03.52_PM.jpeg"
+                alt="Portrait of a TOV Homes representative"
+                className="aspect-[4/5] h-full w-full object-cover object-top"
                 loading="lazy"
               />
             </div>
