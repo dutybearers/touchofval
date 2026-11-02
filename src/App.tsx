@@ -11,6 +11,7 @@ import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { useCurrentPage } from '@/lib/router';
 
 function App() {
   const [properties, setProperties] = useState<Property[]>([]);
@@ -29,12 +30,7 @@ function App() {
   const [location, setLocation] = useState('');
   const [status, setStatus] = useState('');
 
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const { page, navigate } = useCurrentPage();
 
   const fetchProperties = useCallback(async () => {
     setLoading(true);
@@ -109,46 +105,58 @@ function App() {
   const handleInquire = (propertyTitle: string) => {
     setSelectedProperty(null);
     setPrefillProperty(propertyTitle);
-    scrollToSection('contact');
+    navigate('contact');
   };
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar onNavigate={scrollToSection} />
+      <Navbar activePage={page} onNavigate={navigate} />
 
-      <Hero
-        onSearch={() => scrollToSection('properties')}
-        propertyType={propertyType}
-        setPropertyType={setPropertyType}
-        minPrice={minPrice}
-        setMinPrice={setMinPrice}
-        maxPrice={maxPrice}
-        setMaxPrice={setMaxPrice}
-        location={location}
-        setLocation={setLocation}
-        status={status}
-        setStatus={setStatus}
-        locations={locations}
-      />
+      {page === 'home' && (
+        <Hero
+          onSearch={() => navigate('properties')}
+          propertyType={propertyType}
+          setPropertyType={setPropertyType}
+          minPrice={minPrice}
+          setMinPrice={setMinPrice}
+          maxPrice={maxPrice}
+          setMaxPrice={setMaxPrice}
+          location={location}
+          setLocation={setLocation}
+          status={status}
+          setStatus={setStatus}
+          locations={locations}
+        />
+      )}
 
-      <PropertyListings
-        properties={properties}
-        loading={loading}
-        error={error}
-        onPropertyClick={setSelectedProperty}
-        activeFilters={activeFilters}
-        onClearFilters={handleClearFilters}
-      />
+      {page !== 'home' && (
+        <main className="pt-20">
+          {page === 'properties' && (
+            <PropertyListings
+              properties={properties}
+              loading={loading}
+              error={error}
+              onPropertyClick={setSelectedProperty}
+              activeFilters={activeFilters}
+              onClearFilters={handleClearFilters}
+            />
+          )}
+          {page === 'land-banking' && <LandBanking />}
+          {page === 'about' && <About />}
+          {page === 'services' && <Services />}
+          {page === 'testimonials' && (
+            <Testimonials testimonials={testimonials} loading={testimonialsLoading} />
+          )}
+          {page === 'contact' && (
+            <Contact
+              prefillProperty={prefillProperty}
+              onPrefillConsumed={() => setPrefillProperty(null)}
+            />
+          )}
+        </main>
+      )}
 
-      <LandBanking />
-      <About />
-      <Services />
-      <Testimonials testimonials={testimonials} loading={testimonialsLoading} />
-      <Contact
-        prefillProperty={prefillProperty}
-        onPrefillConsumed={() => setPrefillProperty(null)}
-      />
-      <Footer onNavigate={scrollToSection} />
+      <Footer onNavigate={navigate} />
 
       <PropertyDetailModal
         property={selectedProperty}

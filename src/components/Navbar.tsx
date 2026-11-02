@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import Logo from './Logo';
+import type { PageId } from '@/lib/router';
 
 interface NavbarProps {
-  onNavigate: (section: string) => void;
+  activePage: PageId;
+  onNavigate: (page: PageId) => void;
 }
 
-const navLinks = [
+const navLinks: { label: string; id: PageId }[] = [
   { label: 'Home', id: 'home' },
   { label: 'About', id: 'about' },
   { label: 'Properties', id: 'properties' },
@@ -16,7 +18,7 @@ const navLinks = [
   { label: 'Contact', id: 'contact' },
 ];
 
-export default function Navbar({ onNavigate }: NavbarProps) {
+export default function Navbar({ activePage, onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,7 +29,9 @@ export default function Navbar({ onNavigate }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNav = (id: string) => {
+  const solid = scrolled || activePage !== 'home';
+
+  const handleNav = (id: PageId) => {
     onNavigate(id);
     setMenuOpen(false);
   };
@@ -35,32 +39,36 @@ export default function Navbar({ onNavigate }: NavbarProps) {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 shadow-md backdrop-blur-md'
-          : 'bg-transparent'
+        solid ? 'bg-white/95 shadow-md backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <button onClick={() => handleNav('home')} aria-label="TOV Home">
-          <Logo variant={scrolled ? 'dark' : 'light'} />
+          <Logo variant={solid ? 'dark' : 'light'} />
         </button>
 
         <div className="hidden items-center gap-7 lg:flex">
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => handleNav(link.id)}
-              className={`text-sm font-medium transition-colors hover:text-tov-500 ${
-                scrolled ? 'text-gray-700' : 'text-white/90'
-              }`}
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = link.id === activePage;
+            return (
+              <button
+                key={link.id}
+                onClick={() => handleNav(link.id)}
+                aria-current={isActive ? 'page' : undefined}
+                className={`text-sm transition-colors hover:text-tov-500 ${
+                  isActive ? 'font-semibold text-tov-600' : 'font-medium'
+                } ${
+                  !isActive && (solid ? 'text-gray-700' : 'text-white/90')
+                }`}
+              >
+                {link.label}
+              </button>
+            );
+          })}
           <a
             href="tel:+2347068699134"
             className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-all ${
-              scrolled
+              solid
                 ? 'bg-tov-600 text-white hover:bg-tov-700'
                 : 'bg-white/15 text-white backdrop-blur-sm hover:bg-white/25'
             }`}
@@ -71,7 +79,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
         </div>
 
         <button
-          className={`lg:hidden ${scrolled ? 'text-tov-700' : 'text-white'}`}
+          className={`lg:hidden ${solid ? 'text-tov-700' : 'text-white'}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -82,15 +90,23 @@ export default function Navbar({ onNavigate }: NavbarProps) {
       {menuOpen && (
         <div className="animate-slide-down border-t border-gray-100 bg-white px-4 py-4 shadow-lg lg:hidden">
           <div className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNav(link.id)}
-                className="rounded-lg px-4 py-3 text-left text-sm font-medium text-gray-700 transition-colors hover:bg-tov-50 hover:text-tov-600"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.id === activePage;
+              return (
+                <button
+                  key={link.id}
+                  onClick={() => handleNav(link.id)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`rounded-lg px-4 py-3 text-left text-sm transition-colors hover:bg-tov-50 hover:text-tov-600 ${
+                    isActive
+                      ? 'bg-tov-50 font-semibold text-tov-600'
+                      : 'font-medium text-gray-700'
+                  }`}
+                >
+                  {link.label}
+                </button>
+              );
+            })}
             <a
               href="tel:+2347068699134"
               className="mt-2 flex items-center gap-2 rounded-lg bg-tov-600 px-4 py-3 text-sm font-semibold text-white"

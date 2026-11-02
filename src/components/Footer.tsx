@@ -1,12 +1,13 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import Logo from './Logo';
+import type { PageId } from '@/lib/router';
 
 interface FooterProps {
-  onNavigate: (section: string) => void;
+  onNavigate: (page: PageId) => void;
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
-  const quickLinks = [
+  const quickLinks: { label: string; id: PageId }[] = [
     { label: 'Home', id: 'home' },
     { label: 'About Us', id: 'about' },
     { label: 'Properties', id: 'properties' },
