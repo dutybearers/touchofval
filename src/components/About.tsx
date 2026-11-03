@@ -15,13 +15,21 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl shadow-xl">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <img
                 src="/images/WhatsApp_Image_2026-10-30_at_2.03.52_PM.jpeg"
                 alt="Portrait of a TOV Homes representative"
                 className="aspect-[4/5] h-full w-full object-cover object-top"
                 loading="lazy"
               />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-tov-950/90 via-tov-950/50 to-transparent px-6 pb-6 pt-16">
+                <p className="font-serif text-lg font-semibold text-white">
+                  CEO/MD &amp; Chairman
+                </p>
+                <p className="text-sm text-white/80">
+                  Touch of Valentine Homes &amp; Interiors Ltd
+                </p>
+              </div>
             </div>
             <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-tov-600 p-6 text-white shadow-2xl sm:block">
               <p className="font-serif text-3xl font-bold">TOV</p>
