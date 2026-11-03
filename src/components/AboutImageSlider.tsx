@@ -67,7 +67,14 @@ export default function AboutImageSlider() {
         <ChevronRight className="h-5 w-5" />
       </button>
 
-      <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-1.5">
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent px-5 pb-5 pt-16 sm:px-6 sm:pb-6">
+        <p className="font-serif text-xl font-bold text-white sm:text-2xl">
+          Dr. Valentine Mbamalu
+        </p>
+        <p className="mt-0.5 text-sm text-white/80">CEO/MD &amp; Chairman</p>
+      </div>
+
+      <div className="absolute inset-x-0 top-4 flex items-center justify-center gap-1.5">
         {slides.map((slide, index) => (
           <button
             key={slide.src}
