@@ -1,5 +1,4 @@
 import { CheckCircle2 } from 'lucide-react';
-import AboutImageSlider from '@/components/AboutImageSlider';
 
 export default function About() {
   const values = [
@@ -16,7 +15,14 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="relative">
-            <AboutImageSlider />
+            <div className="relative overflow-hidden rounded-2xl shadow-xl">
+              <img
+                src="/images/WhatsApp_Image_2026-10-30_at_2.03.52_PM.jpeg"
+                alt="Portrait of a TOV Homes representative"
+                className="aspect-[4/5] h-full w-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
             <div className="mt-5 pr-0 sm:pr-40">
               <p className="font-serif text-lg font-semibold text-gray-900">
                 CEO/MD &amp; Chairman
