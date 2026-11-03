@@ -22,14 +22,14 @@ export default function About() {
                 className="aspect-[4/5] h-full w-full object-cover object-top"
                 loading="lazy"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-tov-950/90 via-tov-950/50 to-transparent px-6 pb-6 pt-16">
-                <p className="font-serif text-lg font-semibold text-white">
-                  CEO/MD &amp; Chairman
-                </p>
-                <p className="text-sm text-white/80">
-                  Touch of Valentine Homes &amp; Interiors Ltd
-                </p>
-              </div>
+            </div>
+            <div className="mt-5 pr-0 sm:pr-40">
+              <p className="font-serif text-lg font-semibold text-gray-900">
+                CEO/MD &amp; Chairman
+              </p>
+              <p className="text-sm text-gray-600">
+                Touch of Valentine Homes &amp; Interiors Ltd
+              </p>
             </div>
             <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-tov-600 p-6 text-white shadow-2xl sm:block">
               <p className="font-serif text-3xl font-bold">TOV</p>
