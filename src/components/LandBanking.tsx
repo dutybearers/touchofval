@@ -1,4 +1,5 @@
 import { Phone, ArrowUpRight } from 'lucide-react';
+import LandBankingFlyer from '@/components/LandBankingFlyer';
 
 export default function LandBanking() {
   return (
@@ -10,6 +11,8 @@ export default function LandBanking() {
           </h2>
         </div>
       </div>
+
+      <LandBankingFlyer />
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
